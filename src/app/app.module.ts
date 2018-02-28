@@ -4,12 +4,13 @@ import { NgxElectronModule } from 'ngx-electron';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components';
+import { HomeComponent, SwiperComponent } from './components';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    SwiperComponent,
   ],
   imports: [
     BrowserModule,
