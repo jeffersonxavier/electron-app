@@ -10,8 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "electron": "ng build && electron .",
-    "electron-aot": "ng build --prod && electron ."
+    "electron": "tsc main.ts && ng build && electron .",
+    "electron-aot": "tsc main.ts && ng build --prod && electron ."
   },
   "private": true,
   "dependencies": {

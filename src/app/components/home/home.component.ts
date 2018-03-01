@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
 
 @Component({
@@ -9,6 +9,11 @@ import { ElectronService } from 'ngx-electron';
 export class HomeComponent {
 
   constructor(private electronService: ElectronService) {}
+
+  @HostListener('window:keyup', ['$event'])
+  listenEvents(event: KeyboardEvent) {
+    console.log(event); 
+  }
 
   launchWindow() {
     console.log('launchWindow....');
