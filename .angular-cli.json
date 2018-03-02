@@ -19,11 +19,15 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss",
-        "../node_modules/swiper/dist/css/swiper.min.css"
+        "../node_modules/font-awesome/scss/font-awesome.scss",
+        "../node_modules/bootstrap/scss/bootstrap.scss",
+        "../node_modules/swiper/dist/css/swiper.min.css",
+        "styles.scss"
       ],
       "scripts": [
-        "../node_modules/swiper/dist/js/swiper.min.js"
+        "../node_modules/swiper/dist/js/swiper.min.js",
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
