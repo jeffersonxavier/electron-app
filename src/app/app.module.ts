@@ -3,8 +3,12 @@ import { NgModule } from '@angular/core';
 import { NgxElectronModule } from 'ngx-electron';
 import { AppRoutingModule } from './app-routing.module';
 
+// Components
 import { AppComponent } from './app.component';
 import { HomeComponent, SwiperComponent } from './components';
+
+// Services
+import { ElectronManagerService } from './services';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,9 @@ import { HomeComponent, SwiperComponent } from './components';
     NgxElectronModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    ElectronManagerService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
