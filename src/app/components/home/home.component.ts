@@ -10,9 +10,7 @@ export class HomeComponent {
 
   constructor(private electronManagerService: ElectronManagerService) {}
 
-  @HostListener('window:keyup', ['$event'])
-  listenEvents(event: KeyboardEvent) {
-    console.log(event);
+  openSwiperExample() {
     this.electronManagerService.createWindow('swiper');
   }
 }
