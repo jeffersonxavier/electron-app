@@ -551,5 +551,6 @@ module.exports = {
   },
   "devServer": {
     "historyApiFallback": true
-  }
+  },
+  "target": 'electron-renderer'
 };
