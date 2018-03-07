@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Database } from '../enums';
 import * as Datastore from 'nedb';
-import { resolve } from 'path';
 
 @Injectable()
 export class DatabaseService {
 
   private database: Datastore;
-
   constructor() {}
 
-  insert(database: Database, item: any) : Promise<any> {
-    this.database = this.getDatabase(database);
+  insert(databaseName: string, item: any) : Promise<any> {
+    this.database = this.getDatabase(databaseName);
 
     return new Promise((resolve, reject) => {
       return this.database.insert(item, (err, newItem) => {
@@ -23,9 +20,9 @@ export class DatabaseService {
     });
   }
 
-  private getDatabase(database: Database) {
+  private getDatabase(databaseName: string) {
     return new Datastore({
-      filename: database.toString(),
+      filename: databaseName,
       autoload: true
     });
   }

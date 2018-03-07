@@ -1,8 +1,6 @@
-import { Component, HostListener } from '@angular/core';
-import { ElectronManagerService, DatabaseService } from '../../services';
-import { Database } from '../../enums';
-import { Hymnal } from '../../models';
-import * as Datastore from 'nedb';
+import { Component } from '@angular/core';
+import { ElectronManagerService } from '../../services';
+import { HymnalService, Hymnal } from '../../modules/hymnal';
 
 @Component({
   selector: 'home',
@@ -11,22 +9,14 @@ import * as Datastore from 'nedb';
 })
 export class HomeComponent {
 
-  constructor(private electronManagerService: ElectronManagerService, private databaseService: DatabaseService) {}
+  constructor(private electronManagerService: ElectronManagerService, private hymnalService: HymnalService) {}
 
   openSwiperExample() {
     this.electronManagerService.createWindow('swiper');
   }
 
   ngOnInit() {
-    let hymnal = new Hymnal('Christian Harp');
-    this.databaseService.insert(Database.hymnals, hymnal)
-      .then((res) => {
-        console.log('then.....')
-        console.log(res);
-      })
-      .catch((err)  => {
-        console.log('catch......')
-        console.log(err);
-      });
+    let hymnal = new Hymnal("Harpa Cristã");
+    this.hymnalService.createHymnal(hymnal);
   }
 }
