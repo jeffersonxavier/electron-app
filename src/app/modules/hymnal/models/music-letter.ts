@@ -1,9 +1,12 @@
 import { MusicType } from '../enums';
+import { Strophe } from './strophe';
 
 export class MusicLetter {
   hymnalId: String;
+  title: String;
+  author: String;
   musicNumber: Number;
-  verse: Array<String>;
-  chorus: String;
-  type: MusicType;
+  strophes: Array<Strophe>;
+  chorus: Strophe;
+  type: MusicType = MusicType.chorusRepeat;
 }
