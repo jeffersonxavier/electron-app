@@ -1,5 +1,7 @@
 import { Component, HostListener } from '@angular/core';
-import { ElectronManagerService } from '../../services';
+import { ElectronManagerService, DatabaseService } from '../../services';
+import { Database } from '../../enums';
+import { Hymnal } from '../../models';
 import * as Datastore from 'nedb';
 
 @Component({
@@ -9,23 +11,22 @@ import * as Datastore from 'nedb';
 })
 export class HomeComponent {
 
-  constructor(private electronManagerService: ElectronManagerService) {}
+  constructor(private electronManagerService: ElectronManagerService, private databaseService: DatabaseService) {}
 
   openSwiperExample() {
     this.electronManagerService.createWindow('swiper');
   }
 
   ngOnInit() {
-    console.log('on init.....');
-    console.log(__dirname);
-    
-    let db = new Datastore({
-      // filename: path.join(this.electronService.remote.app.getAppPath(),"electron.db"),
-      filename: 'electron.db',
-      autoload: true
-    });
-
-    db.insert({ name: 'product001', quantity : 100 });
-    db.insert({ name: 'product002', quantity : 100 });
+    let hymnal = new Hymnal('Christian Harp');
+    this.databaseService.insert(Database.hymnals, hymnal)
+      .then((res) => {
+        console.log('then.....')
+        console.log(res);
+      })
+      .catch((err)  => {
+        console.log('catch......')
+        console.log(err);
+      });
   }
 }

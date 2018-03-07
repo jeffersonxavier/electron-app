@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent, SwiperComponent } from './components';
 
 // Services
-import { ElectronManagerService } from './services';
+import { ElectronManagerService, DatabaseService } from './services';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { ElectronManagerService } from './services';
   ],
   providers: [
     ElectronManagerService,
+    DatabaseService,
   ],
   bootstrap: [AppComponent]
 })
