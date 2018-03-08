@@ -8,7 +8,7 @@ import { MusicCollectionModule } from './modules';
 
 // Components
 import { AppComponent } from './app.component';
-import { HomeComponent, MusicCollectionComponent, SwiperComponent } from './components';
+import { TopbarComponent, FooterComponent, HomeComponent, MusicCollectionComponent, SwiperComponent } from './components';
 
 // Services
 import { ElectronManagerService } from './services';
@@ -16,6 +16,8 @@ import { ElectronManagerService } from './services';
 @NgModule({
   declarations: [
     AppComponent,
+    TopbarComponent,
+    FooterComponent,
     HomeComponent,
     MusicCollectionComponent,
     SwiperComponent,

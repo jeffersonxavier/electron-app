@@ -4,7 +4,7 @@ import { ElectronManagerService } from '../../services';
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['../../app.component.scss']
 })
 export class HomeComponent {
 
