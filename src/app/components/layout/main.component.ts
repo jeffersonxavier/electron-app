@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'topbar',
-  templateUrl: './topbar.component.html',
+  selector: 'main-layout',
+  templateUrl: './main.component.html',
   styleUrls: ['../../app.component.scss']
 })
-export class TopbarComponent { }
+export class MainComponent { }

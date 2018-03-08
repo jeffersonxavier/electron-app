@@ -4,11 +4,9 @@ import { ElectronManagerService } from '../../services';
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
-  styleUrls: ['../../app.component.scss']
+  styleUrls: ['../../app.component.scss'],
 })
 export class HomeComponent {
-
-  showMusicOptions: Boolean = false;
 
   constructor(private electronManagerService: ElectronManagerService) {}
 

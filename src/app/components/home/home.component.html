@@ -1,5 +1,3 @@
-<topbar></topbar>
-
 <section class="portfolio" id="portfolio">
   <div class="container">
     <h2 class="text-center text-uppercase text-secondary mb-0">Produtos</h2>
@@ -17,7 +15,7 @@
         </a>
       </div>
       <div class="col-md-6 col-lg-4">
-        <a class="portfolio-item d-block mx-auto" href="#" (click)="showMusicOptions = !showMusicOptions">
+        <a class="portfolio-item d-block mx-auto" routerLink="/music-collections">
           <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
             <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
               <span>Músicas</span><br>
@@ -41,7 +39,3 @@
     </div>
   </div>
 </section>
-
-<music-collection *ngIf="showMusicOptions"></music-collection>
-
-<page-footer></page-footer>
