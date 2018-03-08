@@ -2,18 +2,9 @@ import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-let win, serve;
-const args = process.argv.slice(1);
-serve = args.some(val => val === '--serve');
-
-try {
-  require('dotenv').config();
-} catch {
-  console.log('asar');
-}
+let win;
 
 function createWindow() {
-
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
 
@@ -25,17 +16,11 @@ function createWindow() {
     height: size.height
   });
 
-  if (serve) {
-    require('electron-reload')(__dirname, {
-    });
-    win.loadURL('http://localhost:4200');
-  } else {
-    win.loadURL(url.format({
-      pathname: path.join(__dirname, 'dist/index.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-  }
+  win.loadURL(url.format({
+    pathname: path.join(__dirname, 'dist/index.html'),
+    protocol: 'file:',
+    slashes: true
+  }));
 
   win.webContents.openDevTools();
 

@@ -20,6 +20,29 @@ export class DatabaseService {
     });
   }
 
+  find(databaseName: string, query: Object, oneResult: Boolean = true): Promise<any> {
+    this.database = this.getDatabase(databaseName);
+
+    return new Promise((resolve, reject) => {
+      if (oneResult) {
+        return this.database.findOne(query, (err, item) => {
+          if (err)
+            reject(err);
+          else
+            resolve(item);
+        });
+      }
+      else {
+        return this.database.find(query, (err, items) => {
+          if (err)
+            reject(err);
+          else
+            resolve(items);
+        });
+      }
+    });
+  }
+
   private getDatabase(databaseName: string) {
     return new Datastore({
       filename: databaseName,
