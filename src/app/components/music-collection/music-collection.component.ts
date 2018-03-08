@@ -8,12 +8,17 @@ import { MusicCollectionService, MusicCollection } from '../../modules/music-col
 })
 export class MusicCollectionComponent implements OnInit {
 
+  collections: Array<MusicCollection> = [];
+  
+  constructor(private musicCollectionService: MusicCollectionService) {}
+
   ngOnInit() {
     console.log('MusicCollectionComponent Init.');
-
-    // let musicCollection = new MusicCollection("Harpa Cristã");
-    // this.musicCollectionService.createMusicCollection(musicCollection)
-    //   .then((musicCollection: MusicCollection) => console.log(musicCollection))
-    //   .catch((err) => console.log(err));
+    this.musicCollectionService.findAll()
+      .then((collections: Array<MusicCollection>) => {
+        this.collections = collections;
+        console.log(this.collections);
+      })
+      .catch((err) => console.log(err));
   }
 }

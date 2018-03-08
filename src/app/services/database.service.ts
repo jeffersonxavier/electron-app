@@ -20,7 +20,7 @@ export class DatabaseService {
     });
   }
 
-  find(databaseName: string, query: Object, oneResult: Boolean = true): Promise<any> {
+  find(databaseName: string, query: Object, oneResult: Boolean = false): Promise<any> {
     this.database = this.getDatabase(databaseName);
 
     return new Promise((resolve, reject) => {

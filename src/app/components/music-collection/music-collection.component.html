@@ -3,11 +3,11 @@
     <h2 class="text-center text-uppercase text-secondary mb-0">Coleções de músicas</h2>
     <hr class="star-dark mb-5">
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-3" *ngFor="let collection of collections">
         <div class="card text-center">
           <div class="card-block">
-            <h4 class="card-title">Harpa Cristã</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Subtítulo</h6>
+            <h4 class="card-title">{{ collection.name }}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{ collection.informations }}</h6>
             <button class="btn btn-width-all btn-outline-primary">Visualizar</button>
             <button class="btn btn-width-all btn-outline-danger">Remover</button>
           </div>
@@ -15,7 +15,7 @@
       </div>
     </div>
     
-    <div class="row">
+    <div class="row padding-top">
       <div class="col-sm-3"></div>
       <div class="col-sm-3">
         <button class="btn btn-width-all btn-outline-secondary"><i class="fa fa-download"></i> Importar Coleções</button>

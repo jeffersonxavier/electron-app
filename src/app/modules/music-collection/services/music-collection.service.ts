@@ -26,6 +26,14 @@ export class MusicCollectionService {
     });
   }
 
+  findAll(): Promise<Array<MusicCollection>> {
+    return new Promise((resolve, reject) => {
+      return this.databaseService.find(DatabaseEnum.musicCollections.toString(), {})
+        .then((collections: Array<MusicCollection>) => resolve(collections))
+        .catch((err) => reject(err));
+    });
+  }
+
   private getMusicCollectionByName(collectionName: String): Promise<MusicCollection> {
     return new Promise((resolve, reject) => {
       return this.databaseService.find(DatabaseEnum.musicCollections.toString(), { name: collectionName }, true)
