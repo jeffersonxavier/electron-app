@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ElectronManagerService } from '../../services';
-import { HymnalService, Hymnal, MusicLetter, Strophe } from '../../modules/hymnal';
+import { MusicCollectionService, MusicCollection } from '../../modules/music-collection';
 
 @Component({
   selector: 'home',
@@ -11,16 +11,16 @@ export class HomeComponent {
 
   showMusicOptions: Boolean = false;
 
-  constructor(private electronManagerService: ElectronManagerService, private hymnalService: HymnalService) {}
+  constructor(private electronManagerService: ElectronManagerService, private musicCollectionService: MusicCollectionService) {}
 
   openSwiperExample() {
     this.electronManagerService.createWindow('swiper');
   }
 
   ngOnInit() {
-    let hymnal = new Hymnal("Harpa Cristã");
-    this.hymnalService.createHymnal(hymnal)
-      .then((hymnal: Hymnal) => console.log(hymnal))
+    let musicCollection = new MusicCollection("Harpa Cristã");
+    this.musicCollectionService.createMusicCollection(musicCollection)
+      .then((musicCollection: MusicCollection) => console.log(musicCollection))
       .catch((err) => console.log(err));
   }
 }

@@ -1,3 +1,3 @@
 export * from './music-letter';
-export * from './hymnal';
+export * from './music-collection';
 export * from './strophe';

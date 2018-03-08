@@ -1,21 +1,21 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
 // Services
-import { HymnalService } from './services';
+import { MusicCollectionService } from './services';
 import { DatabaseService } from '../../services';
 
 @NgModule({
   providers: [
     DatabaseService,
-    HymnalService,
+    MusicCollectionService,
   ],
 })
-export class HymnalModule {
+export class MusicCollectionModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: HymnalModule,
+      ngModule: MusicCollectionModule,
       providers: [
-        HymnalService,
+        MusicCollectionService,
       ]
     }
   }

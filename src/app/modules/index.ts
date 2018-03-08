@@ -1,1 +1,1 @@
-export * from './hymnal/hymnal.module';
+export * from './music-collection/music-collection.module';

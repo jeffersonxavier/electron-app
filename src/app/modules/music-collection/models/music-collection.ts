@@ -1,4 +1,4 @@
-export class Hymnal {
+export class MusicCollection {
   name: String;
 
   constructor(name: String) {

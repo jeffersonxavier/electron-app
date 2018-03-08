@@ -4,7 +4,7 @@ import { NgxElectronModule } from 'ngx-electron';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
-import { HymnalModule } from './modules';
+import { MusicCollectionModule } from './modules';
 
 // Components
 import { AppComponent } from './app.component';
@@ -23,7 +23,7 @@ import { ElectronManagerService } from './services';
     BrowserModule,
     NgxElectronModule,
     AppRoutingModule,
-    HymnalModule.forRoot(),
+    MusicCollectionModule.forRoot(),
   ],
   providers: [
     ElectronManagerService,

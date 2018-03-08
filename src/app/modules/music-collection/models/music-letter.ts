@@ -2,7 +2,7 @@ import { MusicType } from '../enums';
 import { Strophe } from './strophe';
 
 export class MusicLetter {
-  hymnalId: String;
+  musicCollectionId: String;
   title: String;
   author: String;
   musicNumber: Number;
