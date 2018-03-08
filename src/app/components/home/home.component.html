@@ -43,16 +43,10 @@
         </a>
       </div>
     </div>
-    <div class="row" *ngIf="showMusicOptions">
-      <div class="col-md-12 col-lg-6">
-        <button class="btn btn-xl btn-width-all btn-outline-secondary">Importar Harpa Cristã</button>
-      </div>
-      <div class="col-md-12 col-lg-6">
-        <button class="btn btn-xl btn-width-all btn-outline-primary">Nova Coleção</button>
-      </div>
-    </div>
   </div>
 </section>
+
+<music-collection *ngIf="showMusicOptions"></music-collection>
 
 <footer class="footer text-center">
   <div class="container">

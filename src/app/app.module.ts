@@ -8,7 +8,7 @@ import { MusicCollectionModule } from './modules';
 
 // Components
 import { AppComponent } from './app.component';
-import { HomeComponent, SwiperComponent } from './components';
+import { HomeComponent, MusicCollectionComponent, SwiperComponent } from './components';
 
 // Services
 import { ElectronManagerService } from './services';
@@ -17,6 +17,7 @@ import { ElectronManagerService } from './services';
   declarations: [
     AppComponent,
     HomeComponent,
+    MusicCollectionComponent,
     SwiperComponent,
   ],
   imports: [

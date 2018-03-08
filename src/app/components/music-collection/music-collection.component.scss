@@ -1,0 +1,17 @@
+@import '../home/home.component.scss';
+
+.card {
+  border-color: $primary;
+  border-width: 2px;
+  
+  .card-subtitle{
+    padding-bottom: .5rem;
+  }
+
+  .btn {
+    border-color: $primary;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+  }
+}
