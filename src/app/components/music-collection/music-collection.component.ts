@@ -43,4 +43,22 @@ export class MusicCollectionComponent implements OnInit {
         remove(collection);
     });
   }
+
+  importChristianHarp() {
+    this.musicCollectionService.importCristianHarp()
+      .then((musicCollection: MusicCollection) => {
+        console.log('christian harp imported...', musicCollection);
+        let hasChristianHarp: Boolean = false;
+        for (let collection of this.collections) {
+          if (collection.name == musicCollection.name) {
+            hasChristianHarp = true;
+            break;
+          }
+        }
+
+        if (!hasChristianHarp)
+          this.collections.push(musicCollection);
+      })
+      .catch((err) => console.log(err));
+  }
 }

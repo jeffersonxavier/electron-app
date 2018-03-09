@@ -5,10 +5,11 @@ import * as Datastore from 'nedb';
 export class DatabaseService {
 
   private database: Datastore;
+  private lastDatabaseName: string;
   constructor() {}
 
   insert(databaseName: string, item: any) : Promise<any> {
-    this.database = this.getDatabase(databaseName);
+    this.getDatabase(databaseName);
 
     return new Promise((resolve, reject) => {
       return this.database.insert(item, (err, newItem) => {
@@ -21,7 +22,7 @@ export class DatabaseService {
   }
 
   find(databaseName: string, query: Object, oneResult: Boolean = false): Promise<any> {
-    this.database = this.getDatabase(databaseName);
+    this.getDatabase(databaseName);
 
     return new Promise((resolve, reject) => {
       if (oneResult) {
@@ -43,11 +44,11 @@ export class DatabaseService {
     });
   }
 
-  remove(databaseName: string, query: Object): Promise<any> {
-    this.database = this.getDatabase(databaseName);
+  remove(databaseName: string, query: Object, multi: boolean = true): Promise<any> {
+    this.getDatabase(databaseName);
 
     return new Promise((resolve, reject) => {
-      return this.database.remove(query, (err, removed) => {
+      return this.database.remove(query, { multi: multi }, (err, removed) => {
         if (err)
             reject(err);
           else
@@ -57,9 +58,13 @@ export class DatabaseService {
   }
 
   private getDatabase(databaseName: string) {
-    return new Datastore({
-      filename: databaseName,
-      autoload: true
-    });
+    if (!this.database || databaseName != this.lastDatabaseName) {
+      this.database = new Datastore({
+        filename: databaseName,
+        autoload: true
+      });
+      
+      this.lastDatabaseName = databaseName;
+    }
   }
 }
