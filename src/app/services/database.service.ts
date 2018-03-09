@@ -43,6 +43,19 @@ export class DatabaseService {
     });
   }
 
+  remove(databaseName: string, query: Object): Promise<any> {
+    this.database = this.getDatabase(databaseName);
+
+    return new Promise((resolve, reject) => {
+      return this.database.remove(query, (err, removed) => {
+        if (err)
+            reject(err);
+          else
+            resolve(removed);
+      });
+    });
+  }
+
   private getDatabase(databaseName: string) {
     return new Datastore({
       filename: databaseName,

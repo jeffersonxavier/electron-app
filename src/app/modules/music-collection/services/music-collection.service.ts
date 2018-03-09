@@ -34,6 +34,26 @@ export class MusicCollectionService {
     });
   }
 
+  remove(musicCollectionId: String): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return this.databaseService.remove(DatabaseEnum.musicCollections.toString(), { _id: musicCollectionId })
+        .then(() => {
+          return this.removeAllMusics(musicCollectionId)
+            .then(() => resolve())
+            .catch((err) => reject(err));
+        })
+        .catch((err) => reject(err));
+    });
+  }
+
+  removeAllMusics(musicCollectionId: String): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return this.databaseService.remove(DatabaseEnum.musics.toString(), { musicCollectionId: musicCollectionId })
+        .then(() => resolve())
+        .catch((err) => reject(err));
+    });
+  }
+
   private getMusicCollectionByName(collectionName: String): Promise<MusicCollection> {
     return new Promise((resolve, reject) => {
       return this.databaseService.find(DatabaseEnum.musicCollections.toString(), { name: collectionName }, true)
